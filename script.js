@@ -52,12 +52,20 @@ document.addEventListener("DOMContentLoaded", function() {
         const now = new Date().getTime();
         const distance = birthday - now;
 
-        if (distance <= 0) {
-            clearInterval(interval);
-            document.querySelector(".countdown").style.display = "none";
-            showGift();
-            return;
-        }
+       if (distance <= 0) {
+    clearInterval(interval);
+
+    document.querySelector(".countdown").style.display = "none";
+
+    showGift(); // keep gift animation
+
+    // Show cake after 3 seconds (after gift burst)
+    setTimeout(function () {
+        document.getElementById("cakeSection").classList.remove("hidden");
+    }, 3000);
+
+    return;
+}
 
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -165,3 +173,44 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
 });
+
+document.getElementById("blowBtn").addEventListener("click", function () {
+
+    // Blow out all flames
+    const flames = document.querySelectorAll(".flame");
+    flames.forEach(function(flame) {
+        flame.style.display = "none";
+    });
+
+    // Create confetti
+    for (let i = 0; i < 80; i++) {
+        let confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+
+        confetti.style.left = Math.random() * window.innerWidth + "px";
+        confetti.style.backgroundColor =
+            "hsl(" + Math.random() * 360 + ", 100%, 60%)";
+
+        confetti.style.animationDuration = (Math.random() * 2 + 2) + "s";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 3000);
+    }
+
+    // Drop baby penguins
+    for (let i = 0; i < 15; i++) {
+        let penguin = document.createElement("div");
+        penguin.classList.add("babyPenguin");
+        penguin.innerHTML = "🐧";
+
+        penguin.style.left = Math.random() * window.innerWidth + "px";
+        penguin.style.animationDuration = (Math.random() * 2 + 3) + "s";
+
+        document.body.appendChild(penguin);
+
+        setTimeout(() => penguin.remove(), 4000);
+    }
+
+});
+
