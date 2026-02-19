@@ -194,37 +194,100 @@ button:hover {
 }
 
 
-/* =========================
-   🎂 CAKE + FLAME
-========================= */
+/* ========================= */
+/* 🎂 CAKE + CONFETTI STYLES */
+/* ========================= */
 
+#cakeSection {
+    text-align: center;
+    margin-top: 50px;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.birthday-text {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ff6fa5;
+}
+
+/* Cake Body */
 .cake {
-    font-size: 90px;
+    width: 220px;
+    height: 130px;
+    background: #ffb6c1;
+    border-radius: 12px;
+    margin: 20px auto;
     position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-#flame {
+/* Candles container */
+.candles {
     position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 25px;
-    animation: flicker 0.3s infinite alternate;
+    top: -45px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
+/* Candle */
+.candle {
+    width: 10px;
+    height: 40px;
+    background: white;
+    position: relative;
+    border-radius: 2px;
+}
+
+/* Flame */
+.flame {
+    width: 14px;
+    height: 14px;
+    background: orange;
+    border-radius: 50%;
+    position: absolute;
+    top: -14px;
+    left: -2px;
+    animation: flicker 0.5s infinite alternate;
+}
+
+/* Flicker animation */
 @keyframes flicker {
-    from { transform: translateX(-50%) scale(1); }
-    to { transform: translateX(-50%) scale(1.2); }
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(1.2); opacity: 0.7; }
 }
 
+/* Blow button */
+#blowBtn {
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: #ff6fa5;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-/* =========================
-   ✨ CONFETTI
-========================= */
+#blowBtn:hover {
+    background: #ff4f8b;
+    transform: scale(1.05);
+}
+
+/* Confetti */
+.confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: red;
+    top: -10px;
+    animation: fall 3s linear forwards;
+}
 
 @keyframes fall {
     to {
-        transform: translateY(100vh);
+        transform: translateY(100vh) rotate(720deg);
         opacity: 0;
     }
 }
