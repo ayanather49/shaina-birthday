@@ -11,152 +11,107 @@
 
 <body>
 
-<!-- MUSIC -->
+<!-- 🎶 MUSIC -->
 <audio id="bgMusic" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 <button id="musicBtn">Play Music 🎶</button>
 
-<!-- HERO -->
+<!-- 💖 HERO SECTION -->
 <section class="hero">
     <h1>For Shaina Bhatia</h1>
     <h2>My Sweet Lil Penguin 🐧</h2>
 </section>
 
-<!-- COUNTDOWN -->
+<!-- ⏳ COUNTDOWN -->
 <section class="countdown">
     <h3>Countdown to 20 February 2026</h3>
     <p id="timer"></p>
 </section>
 
-<!-- GALLERY -->
+<!-- 📸 GALLERY -->
 <section class="gallery">
-    <img src="photo1.jpg">
-    <img src="photo2.jpg">
-    <img src="photo3.jpg">
-    <img src="photo4.jpg">
+    <img src="photo1.jpg" alt="Memory 1">
+    <img src="photo2.jpg" alt="Memory 2">
+    <img src="photo3.jpg" alt="Memory 3">
+    <img src="photo4.jpg" alt="Memory 4">
 </section>
 
-<!-- SECRET MESSAGE BUTTON -->
+<!-- 💌 SECRET MESSAGE BUTTON -->
 <button id="letterBtn">Secret Message 💌</button>
 
-<!-- SECRET MESSAGE -->
-<section id="letter" class="hidden">
-    <h2>My Dearest Shaina,</h2>
+<!-- 🐧 PENGUIN SCENE -->
+<div id="penguinScene" class="hidden">
+    <div id="mainPenguin">🐧</div>
+    <p class="penguin-text">Tap me to deliver something special…</p>
+</div>
 
-    <p>
-        If distance had a face, I would argue with it every single day
-        for keeping me away from you.
-    </p>
+<!-- 💌 ENVELOPE -->
+<div id="envelope" class="hidden">
+    <div class="envelope-body" id="openEnvelope">
+        💌
+        <p class="tap-text">Tap to Open</p>
+    </div>
+</div>
 
-    <p>
-        Across cities, across silence, across nights where I stare at the ceiling
-        wishing you were beside me; my heart still walks toward you.
-    </p>
+<!-- 📜 LETTER -->
+<div id="letterPaper" class="hidden">
+    <div class="letter-content">
+        <h2>My Dearest Shaina,</h2>
 
-    <p>
-        You have this quiet magic about you.
-        The way you laugh.
-        The way you pretend to be strong.
-        The way you care more than you show.
-        And somehow, without even trying,
-        you became my safest place.
-    </p>
+        <p>
+            If distance had a face, I would argue with it every single day
+            for keeping me away from you.
+        </p>
 
-    <p>
-        You are my calm when my thoughts are loud.
-        My warmth when the world feels cold.
-        My reason to smile at random moments like an idiot.
-    </p>
+        <p>
+            Across cities, across silence, across nights where I stare at the ceiling
+            wishing you were beside me — my heart still walks toward you.
+        </p>
 
-    <p>
-        Loving you doesn’t feel dramatic.
-        It feels certain.
-        Like sunrise.
-        Like breathing.
-        Like something my heart decided long before I understood it.
-    </p>
+        <p>
+            You are my calm when my thoughts are loud,
+            my warmth when the world feels cold,
+            and my favorite notification in this entire universe.
+        </p>
 
-    <p>
-        And even though miles separate us,
-        nothing separates the way I feel about you.
-        Not time.
-        Not silence.
-        Not bad days.
-        Not misunderstandings.
-    </p>
+        <p>
+            Loving you feels certain.
+            Not dramatic.
+            Not temporary.
+            Just steady.
+            Just real.
+        </p>
 
-    <p>
-        Because choosing you,
-        choosing us,
-        is not something I do once.
-        I do it every day.
-    </p>
+        <p>
+            And yes… you overthink.
+            You get dramatic.
+            You act like you're always right.
+            (You’re not. But I’ll let you believe it.)
+        </p>
 
-    <p>
-        And now let me say this properly…
-    </p>
+        <p>
+            But you are also soft.
+            And kind.
+            And stronger than you realize.
+        </p>
 
-    <p>
-        You are not just my girlfriend.
-        You are my favorite notification.
-        My emotional support human.
-        My daily happiness subscription.
-        My sweet lil penguin 🐧
-        who somehow manages to look cute even when being stubborn.
-    </p>
+        <p>
+            My sweet lil penguin 🐧 —
+            stay weird,
+            stay stubborn,
+            stay exactly the way you are.
+        </p>
 
-    <p>
-        You overthink.
-        You get dramatic.
-        You act like you’re always right.
-        (You’re not. But we’ll pretend you are.)
-    </p>
+        <p>
+            Forever yours,<br>
+            The luckiest guy alive.
+        </p>
+    </div>
+</div>
 
-    <p>
-        And still…
-        I wouldn’t change a single thing about you.
-        Not your mood swings.
-        Not your random anger.
-        Not your “I’m fine” when you’re clearly not fine.
-    </p>
-
-    <p>
-        Because all of that?
-        That’s you.
-        And I love you, completely, wholeheartedly.
-    </p>
-
-    <p>
-        So on your birthday,
-        I don’t just celebrate the day you were born.
-        I celebrate the day the universe decided
-        the world needed someone exactly like you.
-    </p>
-
-    <p>
-        Stay soft.
-        Stay strong.
-        Stay weird.
-        Stay mine.
-    </p>
-
-    <p>
-        And remember,
-        no matter how far we are,
-        you will always have someone
-        cheering for you,
-        loving you,
-        and slightly annoying you on purpose.
-    </p>
-
-    <p>
-        Forever yours,
-        the luckiest guy alive.
-    </p>
-
-</section>
-
+<!-- 🎁 GIFT AREA (appears after countdown ends) -->
+<div id="giftArea"></div>
 
 <script src="script.js"></script>
 </body>
