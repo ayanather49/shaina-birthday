@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    // MUSIC BUTTON
+    /* =========================
+       🎶 MUSIC BUTTON
+    ========================== */
+
     const musicBtn = document.getElementById("musicBtn");
     const music = document.getElementById("bgMusic");
 
@@ -9,23 +12,43 @@ document.addEventListener("DOMContentLoaded", function() {
         musicBtn.style.display = "none";
     });
 
-    // SECRET MESSAGE
+
+    /* =========================
+       🐧 SECRET MESSAGE FLOW
+    ========================== */
+
     const letterBtn = document.getElementById("letterBtn");
-    const letter = document.getElementById("letter");
+    const penguinScene = document.getElementById("penguinScene");
+    const mainPenguin = document.getElementById("mainPenguin");
+    const envelope = document.getElementById("envelope");
+    const openEnvelope = document.getElementById("openEnvelope");
+    const letterPaper = document.getElementById("letterPaper");
 
     letterBtn.addEventListener("click", function() {
-        if (letter.style.display === "block") {
-            letter.style.display = "none";
-        } else {
-            letter.style.display = "block";
-        }
+        penguinScene.style.display = "block";
     });
 
-    // COUNTDOWN
+    mainPenguin.addEventListener("click", function() {
+        penguinScene.style.display = "none";
+        envelope.style.display = "block";
+    });
+
+    openEnvelope.addEventListener("click", function() {
+        envelope.style.display = "none";
+        letterPaper.style.display = "block";
+    });
+
+
+    /* =========================
+       ⏳ COUNTDOWN WITH SECONDS
+    ========================== */
+
     const birthday = new Date("February 20, 2026 00:00:00").getTime();
     const timer = document.getElementById("timer");
+    const giftArea = document.getElementById("giftArea");
 
     const interval = setInterval(function() {
+
         const now = new Date().getTime();
         const distance = birthday - now;
 
@@ -41,37 +64,71 @@ document.addEventListener("DOMContentLoaded", function() {
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        timer.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+        timer.innerHTML =
+            days + "d " +
+            hours + "h " +
+            minutes + "m " +
+            seconds + "s";
 
     }, 1000);
 
-    // GIFT FUNCTION
+
+    /* =========================
+       🎁 GIFT + CAKE FLOW
+    ========================== */
+
     function showGift() {
+
         const gift = document.createElement("div");
         gift.id = "giftBox";
-        gift.innerHTML = "🎁";
-        document.body.appendChild(gift);
+        gift.innerHTML = "🐧🎁";
+        gift.style.fontSize = "80px";
+        gift.style.cursor = "pointer";
+        gift.style.marginTop = "40px";
+
+        giftArea.appendChild(gift);
 
         gift.addEventListener("click", function() {
+
             gift.innerHTML = `
-                <div style="font-size:90px;">🎂</div>
+                <div class="cake">
+                    🐧🎂
+                    <div id="flame">🔥</div>
+                </div>
                 <button id="blowBtn">Blow Candles 🕯️</button>
             `;
 
-            document.getElementById("blowBtn").addEventListener("click", function() {
-                gift.innerHTML = "🎂✨";
+            const blowBtn = document.getElementById("blowBtn");
+
+            blowBtn.addEventListener("click", function() {
+
+                const flame = document.getElementById("flame");
+                if (flame) {
+                    flame.style.display = "none";
+                }
+
                 launchConfetti();
+                launchBabyPenguins();
 
                 const message = document.createElement("h2");
                 message.innerText = "Happy Birthday My Sweet Lil Penguin 🐧💕";
-                document.body.appendChild(message);
+                message.style.marginTop = "20px";
+                giftArea.appendChild(message);
+
+                blowBtn.style.display = "none";
             });
+
         });
     }
 
-    // CONFETTI
+
+    /* =========================
+       ✨ CONFETTI
+    ========================== */
+
     function launchConfetti() {
         for (let i = 0; i < 80; i++) {
+
             const confetti = document.createElement("div");
             confetti.innerHTML = "✨";
             confetti.style.position = "fixed";
@@ -79,9 +136,31 @@ document.addEventListener("DOMContentLoaded", function() {
             confetti.style.top = "-10px";
             confetti.style.fontSize = "20px";
             confetti.style.animation = "fall 3s linear forwards";
+
             document.body.appendChild(confetti);
 
             setTimeout(() => confetti.remove(), 3000);
+        }
+    }
+
+
+    /* =========================
+       🐧 BABY PENGUINS
+    ========================== */
+
+    function launchBabyPenguins() {
+        for (let i = 0; i < 15; i++) {
+
+            const baby = document.createElement("div");
+            baby.innerHTML = "🐧";
+            baby.classList.add("babyPenguin");
+
+            baby.style.left = Math.random() * 100 + "vw";
+            baby.style.top = "-20px";
+
+            document.body.appendChild(baby);
+
+            setTimeout(() => baby.remove(), 4000);
         }
     }
 
