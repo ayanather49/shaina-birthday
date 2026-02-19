@@ -53,24 +53,52 @@ button:hover {
 
 
 /* =========================
-   📸 GALLERY
+   📸  BACKGROUND SLIDESHOW 
 ========================= */
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 15px;
-    padding: 20px;
-}
-
-.gallery img {
+.bg-slideshow {
+    position: fixed;
     width: 100%;
-    border-radius: 20px;
-    transition: transform 0.4s ease;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    overflow: hidden;
 }
 
-.gallery img:hover {
-    transform: scale(1.08);
+.bg-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: fadeSlide 24s infinite;
+    filter: blur(3px);
+}
+
+/* Each image delay */
+.bg-slide:nth-child(1) { animation-delay: 0s; }
+.bg-slide:nth-child(2) { animation-delay: 8s; }
+.bg-slide:nth-child(3) { animation-delay: 16s; }
+
+/* Fade Animation */
+@keyframes fadeSlide {
+    0% { opacity: 0; }
+    8% { opacity: 0.25; }
+    33% { opacity: 0.25; }
+    41% { opacity: 0; }
+    100% { opacity: 0; }
+}
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        rgba(255, 230, 240, 0.6),
+        rgba(255, 240, 250, 0.6)
+    );
+    z-index: -1;
 }
 
 
