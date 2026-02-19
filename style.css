@@ -1,3 +1,7 @@
+/* =========================
+   🌸 GENERAL STYLING
+========================= */
+
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -7,19 +11,50 @@ body {
     overflow-x: hidden;
 }
 
-.hero {
-    padding: 70px 20px;
-}
-
 h1 {
     font-family: 'Playfair Display', serif;
     font-size: 40px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+.hero {
+    padding: 70px 20px 40px 20px;
 }
 
 .countdown {
     font-size: 22px;
-    margin: 30px 0;
+    margin: 20px 0;
 }
+
+
+/* =========================
+   🎶 BUTTONS
+========================= */
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background: #ff8fab;
+    color: white;
+    cursor: pointer;
+    margin: 15px;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #ff5d8f;
+}
+
+
+/* =========================
+   📸 GALLERY
+========================= */
 
 .gallery {
     display: grid;
@@ -38,40 +73,173 @@ h1 {
     transform: scale(1.08);
 }
 
-button {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 30px;
-    background: #ff8fab;
-    color: white;
-    cursor: pointer;
-    margin: 15px;
-}
 
-button:hover {
-    background: #ff5d8f;
-}
+/* =========================
+   🐧 PENGUIN SCENE
+========================= */
 
 .hidden {
     display: none;
-    padding: 30px;
 }
 
-#giftBox {
+#penguinScene {
+    margin-top: 20px;
+}
+
+#mainPenguin {
     font-size: 80px;
-    margin-top: 30px;
     cursor: pointer;
+    animation: bounce 1.5s infinite;
 }
 
-#blowBtn {
-    margin-top: 15px;
-    padding: 10px 20px;
-    border-radius: 20px;
+.penguin-text {
+    font-size: 14px;
+    color: #666;
+    margin-top: -10px;
 }
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
+}
+
+
+/* =========================
+   💌 ENVELOPE
+========================= */
+
+#envelope {
+    margin-top: 20px;
+}
+
+.envelope-body {
+    font-size: 80px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.envelope-body:hover {
+    transform: scale(1.1);
+}
+
+.tap-text {
+    font-size: 14px;
+    margin-top: -10px;
+    color: #777;
+}
+
+
+/* =========================
+   📜 LETTER PAPER
+========================= */
+
+#letterPaper {
+    margin: 40px auto;
+    max-width: 600px;
+    background: #fffdf7;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: slideUp 0.8s ease forwards;
+}
+
+.letter-content {
+    text-align: left;
+    line-height: 1.8;
+    color: #333;
+}
+
+.letter-content h2 {
+    margin-bottom: 20px;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   🎂 CAKE + FLAME
+========================= */
+
+.cake {
+    font-size: 90px;
+    position: relative;
+}
+
+#flame {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 25px;
+    animation: flicker 0.3s infinite alternate;
+}
+
+@keyframes flicker {
+    from { transform: translateX(-50%) scale(1); }
+    to { transform: translateX(-50%) scale(1.2); }
+}
+
+
+/* =========================
+   ✨ CONFETTI
+========================= */
 
 @keyframes fall {
     to {
         transform: translateY(100vh);
         opacity: 0;
+    }
+}
+
+
+/* =========================
+   🐧 BABY PENGUINS
+========================= */
+
+.babyPenguin {
+    position: fixed;
+    font-size: 30px;
+    animation: fallPenguin 4s linear forwards;
+}
+
+@keyframes fallPenguin {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   📱 MOBILE OPTIMIZATION
+========================= */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .countdown {
+        font-size: 18px;
+    }
+
+    #letterPaper {
+        padding: 25px;
+        margin: 20px;
+    }
+
+    #mainPenguin {
+        font-size: 60px;
     }
 }
