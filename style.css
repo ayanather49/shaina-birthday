@@ -1,297 +1,175 @@
 /* =========================
-   🌸 GENERAL STYLING
+   🌌 GLOBAL STYLING
 ========================= */
 
-body {
+* {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
     text-align: center;
-    background: linear-gradient(to bottom, #fde2e4, #e2f0ff);
-    color: #444;
+    background: #000;
+    color: white;
     overflow-x: hidden;
+    position: relative;
 }
 
-h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 40px;
-    margin-bottom: 5px;
+/* =========================
+   🖼️ BACKGROUND SLIDESHOW
+========================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.25;
+    z-index: -1;
+    animation: bgSlide 25s infinite;
 }
 
-h2 {
-    font-family: 'Playfair Display', serif;
+@keyframes bgSlide {
+   @keyframes bgSlide {
+    0% { background-image: url("image1.jpg"); }
+    25% { background-image: url("image2.jpg"); }
+    50% { background-image: url("image3.jpg"); }
+    75% { background-image: url("image4.jpg"); }
+    100% { background-image: url("image1.jpg"); }
 }
-
-.hero {
-    padding: 70px 20px 40px 20px;
-}
-
-.countdown {
-    font-size: 22px;
-    margin: 20px 0;
-}
-
 
 /* =========================
    🎶 BUTTONS
 ========================= */
 
 button {
-    padding: 12px 25px;
+    padding: 12px 20px;
     border: none;
-    border-radius: 30px;
-    background: #ff8fab;
-    color: white;
+    border-radius: 25px;
+    font-size: 16px;
     cursor: pointer;
-    margin: 15px;
-    font-size: 14px;
-    transition: 0.3s ease;
+    margin-top: 20px;
+    background: #ff69b4;
+    color: white;
+    transition: 0.3s;
 }
 
 button:hover {
-    background: #ff5d8f;
+    transform: scale(1.05);
 }
-
 
 /* =========================
-   📸  BACKGROUND SLIDESHOW 
+   🐧 SECRET MESSAGE FLOW
 ========================= */
 
-.bg-slideshow {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -2;
-    overflow: hidden;
-}
-
-.bg-slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    animation: fadeSlide 24s infinite;
-    filter: blur(3px);
-}
-
-/* Each image delay */
-.bg-slide:nth-child(1) { animation-delay: 0s; }
-.bg-slide:nth-child(2) { animation-delay: 8s; }
-.bg-slide:nth-child(3) { animation-delay: 16s; }
-
-/* Fade Animation */
-@keyframes fadeSlide {
-    0% { opacity: 0; }
-    8% { opacity: 0.25; }
-    33% { opacity: 0.25; }
-    41% { opacity: 0; }
-    100% { opacity: 0; }
-}
-.overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        rgba(255, 230, 240, 0.6),
-        rgba(255, 240, 250, 0.6)
-    );
-    z-index: -1;
-}
-
-
-/* =========================
-   🐧 PENGUIN SCENE
-========================= */
-
-.hidden {
+#penguinScene,
+#envelope,
+#letterPaper {
     display: none;
-}
-
-#penguinScene {
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 #mainPenguin {
     font-size: 80px;
     cursor: pointer;
-    animation: bounce 1.5s infinite;
 }
 
-.penguin-text {
-    font-size: 14px;
-    color: #666;
-    margin-top: -10px;
-}
-
-@keyframes bounce {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-    100% { transform: translateY(0); }
-}
-
-
-/* =========================
-   💌 ENVELOPE
-========================= */
-
+/* Envelope */
 #envelope {
-    margin-top: 20px;
-}
-
-.envelope-body {
     font-size: 80px;
     cursor: pointer;
-    transition: transform 0.3s ease;
 }
 
-.envelope-body:hover {
-    transform: scale(1.1);
+/* Letter */
+#letterPaper {
+    max-width: 600px;
+    margin: 40px auto;
+    background: white;
+    color: black;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: left;
+    line-height: 1.6;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
-
-.tap-text {
-    font-size: 14px;
-    margin-top: -10px;
-    color: #777;
-}
-
 
 /* =========================
-   📜 LETTER PAPER
+   ⏳ COUNTDOWN
 ========================= */
 
-#letterPaper {
-    margin: 40px auto;
-    max-width: 600px;
-    background: #fffdf7;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    animation: slideUp 0.8s ease forwards;
+.countdown {
+    margin-top: 60px;
+    font-size: 24px;
 }
 
-.letter-content {
-    text-align: left;
-    line-height: 1.8;
-    color: #333;
-}
-
-.letter-content h2 {
-    margin-bottom: 20px;
-}
-
-@keyframes slideUp {
-    from {
-        transform: translateY(40px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-
-/* ========================= */
-/* 🎂 CAKE + CONFETTI STYLES */
-/* ========================= */
-
-#cakeSection {
-    text-align: center;
-    margin-top: 50px;
-    animation: fadeIn 1.5s ease forwards;
-}
-
-.birthday-text {
+#timer {
     font-size: 28px;
-    margin-bottom: 20px;
-    color: #ff6fa5;
+    margin-top: 15px;
+    font-weight: bold;
 }
 
-/* Cake Body */
+/* =========================
+   🎁 GIFT AREA
+========================= */
+
+#giftArea {
+    margin-top: 40px;
+}
+
+/* =========================
+   🎂 CAKE STYLING
+========================= */
+
 .cake {
-    width: 220px;
-    height: 130px;
-    background: #ffb6c1;
-    border-radius: 12px;
-    margin: 20px auto;
+    font-size: 100px;
     position: relative;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    display: inline-block;
+    margin-top: 30px;
 }
 
-/* Candles container */
-.candles {
-    position: absolute;
-    top: -45px;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-/* Candle */
-.candle {
-    width: 10px;
-    height: 40px;
-    background: white;
-    position: relative;
-    border-radius: 2px;
-}
-
-/* Flame */
+/* Flames positioning */
 .flame {
-    width: 14px;
-    height: 14px;
-    background: orange;
-    border-radius: 50%;
     position: absolute;
-    top: -14px;
-    left: -2px;
-    animation: flicker 0.5s infinite alternate;
+    top: -20px;
+    left: 40%;
+    font-size: 25px;
+    animation: flicker 0.8s infinite alternate;
 }
 
-/* Flicker animation */
+.flame2 {
+    left: 50%;
+}
+
+.flame3 {
+    left: 60%;
+}
+
 @keyframes flicker {
-    from { transform: scale(1); opacity: 1; }
-    to { transform: scale(1.2); opacity: 0.7; }
+    from { transform: scale(1); }
+    to { transform: scale(1.2); }
 }
 
-/* Blow button */
-#blowBtn {
-    margin-top: 25px;
-    padding: 12px 25px;
-    background: #ff6fa5;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
-}
+/* =========================
+   ✨ CONFETTI
+========================= */
 
-#blowBtn:hover {
-    background: #ff4f8b;
-    transform: scale(1.05);
-}
-
-/* Confetti */
 .confetti {
     position: fixed;
+    top: -10px;
     width: 8px;
     height: 8px;
-    background: red;
-    top: -10px;
-    animation: fall 3s linear forwards;
+    background: hsl(0, 100%, 60%);
+    animation: fall linear forwards;
 }
 
 @keyframes fall {
     to {
-        transform: translateY(100vh) rotate(720deg);
-        opacity: 0;
+        transform: translateY(100vh) rotate(360deg);
     }
 }
-
 
 /* =========================
    🐧 BABY PENGUINS
@@ -299,107 +177,50 @@ button:hover {
 
 .babyPenguin {
     position: fixed;
-    font-size: 30px;
-    animation: fallPenguin 4s linear forwards;
+    top: -20px;
+    font-size: 28px;
+    animation: fall linear forwards;
 }
 
-@keyframes fallPenguin {
-    to {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-    }
-}
-
-
-.hidden {
-    display: none;
-}
-
-
-/* ================================= */
-/* 📱 FINAL MOBILE OPTIMISATION */
-/* ================================= */
+/* =========================
+   📱 MOBILE OPTIMISATION
+========================= */
 
 @media (max-width: 768px) {
 
     body {
-        padding: 15px;
-        overflow-x: hidden;
+        padding: 20px;
     }
 
     h1 {
         font-size: 24px;
     }
 
-    h2 {
-        font-size: 18px;
-    }
-
     .countdown {
         font-size: 18px;
-        line-height: 1.6;
     }
 
-    /* Cake smaller */
-    .cake {
-        width: 160px;
-        height: 95px;
+    #timer {
+        font-size: 22px;
     }
 
-    .candles {
-        top: -32px;
-    }
-
-    .candle {
-        height: 28px;
-        width: 7px;
-    }
-
-    .flame {
-        width: 9px;
-        height: 9px;
-        top: -9px;
-    }
-
-    #blowBtn {
-        padding: 10px 18px;
-        font-size: 13px;
-    }
-
-    /* Envelope */
-    .envelope-body {
-        font-size: 45px;
-    }
-
-    .tap-text {
-        font-size: 12px;
-    }
-
-    /* Letter */
-    #letterPaper {
-        width: 92%;
-        padding: 20px;
-        margin: 20px auto;
-        font-size: 14px;
-    }
-
-    .letter-content h2 {
-        font-size: 17px;
-    }
-
-    .letter-content p {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-
-    /* Penguin resize */
-    #mainPenguin {
+    #mainPenguin,
+    #envelope {
         font-size: 60px;
     }
 
-    /* Background slideshow performance */
-    .bg-slide {
-        filter: blur(2px);
+    .cake {
+        font-size: 70px;
+    }
+
+    #letterPaper {
+        width: 90%;
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 16px;
     }
 }
-
